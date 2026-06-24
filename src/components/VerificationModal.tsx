@@ -33,7 +33,7 @@ export function VerificationModal({ visible, onClose, email }: VerificationModal
   };
 
   return (
-    <Modal visible={visible} transparent animationType="slide">
+    <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
       <KeyboardAvoidingView 
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={styles.keyboardView}
@@ -89,9 +89,7 @@ export function VerificationModal({ visible, onClose, email }: VerificationModal
             {/* Resend Link */}
             <View className="flex-row justify-center mt-10">
               <Text className="text-[15px] font-['Poppins-Medium'] text-text-secondary">Didn't receive it? </Text>
-              <TouchableOpacity>
-                <Text className="text-[15px] font-['Poppins-Bold'] color-primary">Resend</Text>
-              </TouchableOpacity>
+              <Text className="text-[15px] font-['Poppins-Bold'] text-primary">Resend</Text>
             </View>
 
           </View>

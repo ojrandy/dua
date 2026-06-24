@@ -15,7 +15,7 @@ export default function SignUpScreen() {
   const [showModal, setShowModal] = useState(false);
 
   const handleSignUp = () => {
-    if (email.trim()) {
+    if (email.trim() && password.trim()) {
       setShowModal(true);
     }
   };
@@ -78,7 +78,12 @@ export default function SignUpScreen() {
                 style={styles.input}
               />
             </View>
-            <TouchableOpacity onPress={() => setShowPassword(!showPassword)} className="p-2">
+            <TouchableOpacity 
+              onPress={() => setShowPassword(!showPassword)} 
+              className="p-2"
+              accessibilityRole="button"
+              accessibilityLabel={showPassword ? "Hide password" : "Show password"}
+            >
               <Ionicons name={showPassword ? "eye-outline" : "eye-off-outline"} size={24} color="#87909F" />
             </TouchableOpacity>
           </View>
@@ -134,8 +139,8 @@ export default function SignUpScreen() {
         {/* Footer Link */}
         <View className="flex-row justify-center items-center mt-auto pb-4">
           <Text className="text-text-secondary font-['Poppins-Medium']">Already have an account? </Text>
-          <TouchableOpacity onPress={() => router.replace('/(auth)/sign-in')}>
-            <Text className="color-primary font-['Poppins-Bold']">Log in</Text>
+          <TouchableOpacity onPress={() => router.push('/(auth)/sign-in')}>
+            <Text className="text-primary font-['Poppins-Bold']">Log in</Text>
           </TouchableOpacity>
         </View>
       </ScrollView>

@@ -76,7 +76,12 @@ export default function SignInScreen() {
                 style={styles.input}
               />
             </View>
-            <TouchableOpacity onPress={() => setShowPassword(!showPassword)} className="p-2">
+            <TouchableOpacity 
+              onPress={() => setShowPassword(!showPassword)} 
+              className="p-2"
+              accessibilityRole="button"
+              accessibilityLabel={showPassword ? "Hide password" : "Show password"}
+            >
               <Ionicons name={showPassword ? "eye-outline" : "eye-off-outline"} size={24} color="#87909F" />
             </TouchableOpacity>
           </View>
@@ -132,8 +137,8 @@ export default function SignInScreen() {
         {/* Footer Link */}
         <View className="flex-row justify-center items-center mt-auto pb-4">
           <Text className="text-text-secondary font-['Poppins-Medium']">Don't have an account? </Text>
-          <TouchableOpacity onPress={() => router.replace('/(auth)/sign-up')}>
-            <Text className="color-primary font-['Poppins-Bold']">Sign up</Text>
+          <TouchableOpacity onPress={() => router.push('/(auth)/sign-up')}>
+            <Text className="text-primary font-['Poppins-Bold']">Sign up</Text>
           </TouchableOpacity>
         </View>
       </ScrollView>
