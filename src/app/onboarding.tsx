@@ -62,7 +62,7 @@ export default function OnboardingScreen() {
         {/* Button */}
         <TouchableOpacity
           className="bg-primary flex-row items-center justify-center py-[18px] rounded-[32px] mt-auto"
-          onPress={() => router.push("/")}
+          onPress={() => router.push("/(auth)/sign-up")}
         >
           <Text className="text-white h3 mr-2">Get Started</Text>
           <SymbolView name="chevron.right" size={24} tintColor="white" />
